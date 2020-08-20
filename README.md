@@ -19,7 +19,12 @@ rbxl-brs is a tool to convert .BRS (Brickadia saves) to .RBXL(X) (Roblox saves),
 - [x] PB_DefaultSideWedgeTile
 - [x] PB_DefaultTile
 - [x] PB_DefaultWedge
-- [ ] all non procedural bricks
+- [x] B_SpawnPoint
+- [x] B_1x1_Round
+- [x] B_1x1F_Round
+- [x] B_2x2_Round
+- [x] B_2x2F_Round
+- [x] B_4x4_Round
 
 ### RBXL(X) to BRS
 

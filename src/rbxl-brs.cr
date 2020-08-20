@@ -15,6 +15,8 @@ require "./rbxl-brs/bricks/default_side_wedge.cr"
 require "./rbxl-brs/bricks/default_side_wedge_tile.cr"
 require "./rbxl-brs/bricks/default_tile.cr"
 require "./rbxl-brs/bricks/default_wedge.cr"
+require "./rbxl-brs/bricks/round.cr"
+require "./rbxl-brs/bricks/spawnpoint.cr"
 
 include RBXLBRS
 
@@ -53,26 +55,36 @@ out_xml = XML.build(indent: "\t") do |xml|
         case asset_name
         when "PB_DefaultBrick"
           DefaultBrick.new(in_save, brick).write_xml(xml)
-        when "PB_DefaultTile"
-          DefaultTile.new(in_save, brick).write_xml(xml)
-        when "PB_DefaultWedge"
-          DefaultWedge.new(in_save, brick).write_xml(xml)
-        when "PB_DefaultSideWedge"
-          DefaultSideWedge.new(in_save, brick).write_xml(xml)
-        when "PB_DefaultSideWedgeTile"
-          DefaultSideWedgeTile.new(in_save, brick).write_xml(xml)
         when "PB_DefaultRamp"
           DefaultRamp.new(in_save, brick).write_xml(xml)
-        when "PB_DefaultRampInverted"
-          DefaultRampInverted.new(in_save, brick).write_xml(xml)
         when "PB_DefaultRampCorner"
           DefaultRampCorner.new(in_save, brick).write_xml(xml)
         when "PB_DefaultRampCornerInverted"
           DefaultRampCornerInverted.new(in_save, brick).write_xml(xml)
         when "PB_DefaultRampInnerCorner"
           DefaultRampInnerCorner.new(in_save, brick).write_xml(xml)
-        #when "PB_DefaultRampInnerCornerInverted"
-        #  DefaultRampInnerCornerInverted.new(in_save, brick).write_xml(xml)
+        when "PB_DefaultRampInverted"
+          DefaultRampInverted.new(in_save, brick).write_xml(xml)
+        when "PB_DefaultSideWedge"
+          DefaultSideWedge.new(in_save, brick).write_xml(xml)
+        when "PB_DefaultSideWedgeTile"
+          DefaultSideWedgeTile.new(in_save, brick).write_xml(xml)
+        when "PB_DefaultTile"
+          DefaultTile.new(in_save, brick).write_xml(xml)
+        when "PB_DefaultWedge"
+          DefaultWedge.new(in_save, brick).write_xml(xml)
+        when "B_1x1_Round"
+          Round.new(in_save, brick, 1.0, 1.2).write_xml(xml)
+        when "B_1x1F_Round"
+          Round.new(in_save, brick, 1.0, 0.4).write_xml(xml)
+        when "B_2x2_Round"
+          Round.new(in_save, brick, 2.0, 1.2).write_xml(xml)
+        when "B_2x2F_Round"
+          Round.new(in_save, brick, 2.0, 0.4).write_xml(xml)
+        when "B_4x4_Round"
+          Round.new(in_save, brick, 4.0, 1.2).write_xml(xml)
+        when "B_SpawnPoint"
+          SpawnPoint.new(in_save, brick).write_xml(xml)
         else
           # don't do anything, just skip the brick
           puts "skipping brick with asset name \"#{asset_name}\""
