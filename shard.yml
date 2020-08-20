@@ -1,0 +1,17 @@
+name: rbxl-brs
+version: 0.1.0
+
+authors:
+  - voximity <zander@zanderf.net>
+
+targets:
+  rbxl-brs:
+    main: src/rbxl-brs.cr
+
+dependencies:
+  brs-cr:
+    github: voximity/brs-cr
+
+crystal: 0.34.0
+
+license: MIT

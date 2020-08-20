@@ -1,0 +1,6 @@
+version: 1.0
+shards:
+  brs-cr:
+    github: voximity/brs-cr
+    commit: a7c77e87df2c4550bf011a075bfdea3305b3d74f
+
