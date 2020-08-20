@@ -11,6 +11,7 @@ module RBXLBRS
           write_size(xml, @height, @diameter, @diameter)
           (cframe * CFrame.angles(0.0, 0.0, Math::PI / 2)).write_xml(xml)
           write_color(xml)
+          write_material(xml)
 
           xml.element "token", name: "Shape" { xml.text "2" }
           xml.element "token", name: "TopSurface" { xml.text "0" }

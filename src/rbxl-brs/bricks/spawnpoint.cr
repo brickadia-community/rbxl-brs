@@ -7,6 +7,7 @@ module RBXLBRS
           write_size(xml, 4.0, 0.4, 4.0)
           cframe.write_xml(xml)
           write_color(xml)
+          write_material(xml)
         end
       end
     end

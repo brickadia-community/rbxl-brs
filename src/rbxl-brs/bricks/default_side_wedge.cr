@@ -7,6 +7,7 @@ module RBXLBRS
           write_size(xml, @brick.size.z / 5, @brick.size.x / 5, @brick.size.y / 5)
           (cframe(apply_angle: false) * CFrame.angles(0, (rotation + 2) * Math::PI / 2, 0) * CFrame.angles(0, 0, Math::PI / 2)).write_xml(xml)
           write_color(xml)
+          write_material(xml)
 
           xml.element "token", name: "TopSurface" { xml.text "0" }
           xml.element "token", name: "BottomSurface" { xml.text "0" }

@@ -72,6 +72,21 @@ module RBXLBRS
       xml.element "float", name: "Transparency" { xml.text (1_f64 - (color.a / 255)).to_s }
     end
 
+    def write_material(xml : XML::Builder)
+      case @save.materials[@brick.material_index]
+      when "BMC_Plastic"
+        xml.element "token", name: "Material" { xml.text "256" }
+      when "BMC_Glow"
+        xml.element "token", name: "Material" { xml.text "288" }
+      when "BMC_Metallic"
+        xml.element "token", name: "Material" { xml.text "1088" }
+      when "BMC_Hologram"
+        xml.element "token", name: "Material" { xml.text "1584" }
+      else
+        # don't write out a material
+      end
+    end
+
     abstract def write_xml(xml : XML::Builder)
   end
 end

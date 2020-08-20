@@ -7,6 +7,7 @@ module RBXLBRS
           write_size(xml, @brick.size.x / 5, @brick.size.z / 5, @brick.size.y / 5)
           cframe.write_xml(xml)
           write_color(xml)
+          write_material(xml)
         end
       end
     end
