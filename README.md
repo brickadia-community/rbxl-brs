@@ -29,9 +29,13 @@ while Brickadia locks everything to a fine grid of tenths of a stud, and rotatio
 ## Installation
 
 `git clone https://github.com/voximity/rbxl-brs.git`
+
 `cd rbxl-brs`
+
 `shards install`
+
 `shards build`
+
 `./bin/rbxl-brs -i my_brs_file.brs -o my_rbxlx_file.rbxlx`
 
 Does not compile on Windows (use WSL).
