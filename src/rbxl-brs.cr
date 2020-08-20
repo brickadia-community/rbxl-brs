@@ -39,6 +39,13 @@ in_save = BRS::Save.new(in_file)
 out_xml = XML.build(indent: "\t") do |xml|
   xml.element "roblox", {"xmlns:xmine" => "http://www.w3.org/2005/05/xmlmime", "xmlns:xsi" => "http://www.w3.org/2001/XMLSchema-instance", "xsi:noNamespaceSchemaLocation" => "http://www.roblox.com/roblox.xsd", "version" => "4"} do
     xml.element "Item", {"class" => "Workspace"} do
+      xml.element "Item", {"class" => "Script"} do
+        xml.element "Properties" do
+          xml.element "string", name: "Name" { xml.text "Save Information" }
+          xml.element "string", name: "Source" { xml.text "print'\"#{in_save.description}\"'print'saved by #{in_save.author.username}'print'\\nexported from Brickadia with rbxl-brs'" }
+        end
+      end
+
       in_save.bricks.each do |brick|
         # determine asset name and consequently the Part used to convert to roblox bricks
         asset_name = in_save.brick_assets[brick.asset_name_index]

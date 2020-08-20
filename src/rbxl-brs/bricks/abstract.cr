@@ -56,13 +56,17 @@ module RBXLBRS
       end
     end
 
+    def linear_to_srgb(c : Float64)
+      c > 0.0031308 ? 1.055 * c ** (1.0 / 2.4) - 0.055 : 12.92 * c
+    end
+
     def write_color(xml : XML::Builder)
       color = @brick.color || @save.colors[@brick.color_index.not_nil!]
 
       xml.element "Color3", name: "Color" do
-        xml.element "R" { xml.text (color.r / 255).to_s }
-        xml.element "G" { xml.text (color.g / 255).to_s }
-        xml.element "B" { xml.text (color.b / 255).to_s }
+        xml.element "R" { xml.text linear_to_srgb(color.r / 255).to_s }
+        xml.element "G" { xml.text linear_to_srgb(color.g / 255).to_s }
+        xml.element "B" { xml.text linear_to_srgb(color.b / 255).to_s }
       end
 
       xml.element "float", name: "Transparency" { xml.text (1_f64 - (color.a / 255)).to_s }
